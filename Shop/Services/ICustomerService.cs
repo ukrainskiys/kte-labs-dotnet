@@ -1,5 +1,4 @@
-using Shop.Domain.Dto;
-using Shop.Domain.Models;
+using Shop.Models.DTO;
 
 namespace Shop.Services;
 

@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Shop.Api.Rest.Requests;
 using Shop.Api.Rest.Responses;
-using Shop.Domain;
-using Shop.Domain.Dto;
+using Shop.Models.DTO;
+using Shop.Models.Util;
 
 namespace Shop.Api.Rest;
 
@@ -10,10 +10,14 @@ namespace Shop.Api.Rest;
 [Route("/api/rest/[controller]")]
 public class ProductsController : ControllerBase
 {
+    /// <summary>
+    /// Get all products
+    /// </summary>
+    /// <response code="200">Success</response>
     [HttpGet]
     [Produces("application/json")]
     [ProducesResponseType(typeof(ProductListResponse), StatusCodes.Status200OK)]
-    public IActionResult GetCustomers()
+    public IActionResult GetProducts()
     {
         var r = new ProductListResponse
         {
@@ -30,6 +34,11 @@ public class ProductsController : ControllerBase
         return Ok(r);
     }
 
+    /// <summary>
+    /// Get full information for product
+    /// </summary>
+    /// <response code="200">Success</response>
+    /// <response code="404">Client or Product with the specified ID was not found</response>
     [HttpPost("info")]
     [Produces("application/json")]
     [ProducesResponseType(typeof(ProductInfoResponse), StatusCodes.Status200OK)]
@@ -45,6 +54,12 @@ public class ProductsController : ControllerBase
         return Ok(r);
     }
 
+    /// <summary>
+    /// Create a product valuation
+    /// </summary>
+    /// <response code="201">Created</response>
+    /// <response code="400">Customer don't bought this product</response>
+    /// <response code="404">Client or Product with the specified ID was not found</response>
     [HttpPost("evaluation")]
     [Produces("application/json")]
     [ProducesResponseType(StatusCodes.Status200OK)]

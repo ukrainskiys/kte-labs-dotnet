@@ -4,11 +4,11 @@ namespace Shop.Data.Repositories;
 
 public abstract class RepositoryBase<T> : IRepository<T> where T : class
 {
-    protected readonly ApplicationDbContext ApplicationDbContext;
+    protected readonly ApplicationDbContext Db;
 
     protected RepositoryBase(ApplicationDbContext applicationDbContext)
     {
-        ApplicationDbContext = applicationDbContext;
+        Db = applicationDbContext;
     }
 
     public virtual T? FindById(long id)

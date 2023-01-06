@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Shop.Domain.Models;
+using Shop.Models.Domain;
 
 namespace Shop.Data;
 
@@ -16,7 +16,7 @@ public sealed class ApplicationDbContext : DbContext
     public ApplicationDbContext(IConfiguration configuration)
     {
         _connectionString = configuration.GetConnectionString("Default")!;
-        Database.EnsureDeleted();
+        // Database.EnsureDeleted();
         Database.EnsureCreated();
     }
 

@@ -1,6 +1,4 @@
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Shop.Domain.Models;
+namespace Shop.Models.Domain;
 
 /// <summary>
 /// Позиция - идентификатор товара, кол-во, исходная цена (для заданного кол-ва товаров), конечная цена, конечная скидка (%)

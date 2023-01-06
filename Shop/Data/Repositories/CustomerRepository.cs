@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Shop.Domain.Models;
+using Shop.Models.Domain;
 
 namespace Shop.Data.Repositories;
 
@@ -25,5 +25,12 @@ public class CustomerRepository : RepositoryBase<Customer>
     public override DbSet<Customer> GetDbSet()
     {
         return _customers;
+    }
+
+    public override void Save(Customer entity, params Customer[] entities)
+    {
+        _customers.Add(entity);
+        _customers.AddRange(entities);
+        Db.SaveChangesAsync();
     }
 }

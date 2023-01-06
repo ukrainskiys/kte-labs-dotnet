@@ -8,6 +8,11 @@ namespace Shop.Api.Rest;
 [Route("/api/rest/[controller]")]
 public class SaleController : ControllerBase
 {
+    /// <summary>
+    /// Request for a total cost calculation
+    /// </summary>
+    /// <response code="201">Created</response>
+    /// <response code="404">Client or Product with the specified ID was not found</response>
     [HttpPost]
     [Produces("application/json")]
     [ProducesResponseType(typeof(SaleCalculateResponse), StatusCodes.Status201Created)]
@@ -22,6 +27,12 @@ public class SaleController : ControllerBase
         return Created(nameof(Calculate), new SaleCalculateResponse { SumKopecks = 999999L });
     }
 
+    /// <summary>
+    /// Create a product valuation
+    /// </summary>
+    /// <response code="201">Created</response>
+    /// <response code="400">Specified value does not exist</response>
+    /// <response code="404">Client or Product with the specified ID was not found</response>
     [HttpPost("registration")]
     [Produces("application/json")]
     [ProducesResponseType(typeof(SaleRegistrationResponse), StatusCodes.Status201Created)]
@@ -36,6 +47,12 @@ public class SaleController : ControllerBase
         return Created(nameof(Registration), new SaleRegistrationResponse { CheckNumber = "00100" });
     }
 
+    /// <summary>
+    /// Create a product valuation
+    /// </summary>
+    /// <response code="200">Sucess</response>
+    /// <response code="400">Invalid input data</response>
+    /// <response code="404">Client or Product with the specified ID was not found</response>
     [HttpPost("info")]
     [Produces("application/json")]
     [ProducesResponseType(typeof(SaleInfoResponse), StatusCodes.Status200OK)]

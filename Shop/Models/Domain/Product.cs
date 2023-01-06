@@ -1,6 +1,4 @@
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Shop.Domain.Models;
+namespace Shop.Models.Domain;
 
 /// <summary>
 /// Товар (Идентификатор, наименование, Цена, описание, оценки покупателей).

@@ -1,6 +1,4 @@
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Shop.Domain.Models;
+namespace Shop.Models.Domain;
 
 /// <summary>
 /// Факт продажи (идентификатор клиента, дата продажи, номер чека, список позиций)

@@ -1,4 +1,4 @@
-namespace Shop.Domain.Dto;
+namespace Shop.Models.DTO;
 
 public class CustomerDto
 {

@@ -1,14 +1,14 @@
 using AutoMapper;
-using Shop.Domain.Dto;
-using Shop.Domain.Models;
+using Shop.Models.Domain;
+using Shop.Models.DTO;
 
 namespace Shop.Services.Mapper;
 
 public class ShopMappingProfile : Profile
 {
-    protected ShopMappingProfile()
+    public ShopMappingProfile()
     {
-        CreateMap<CustomerDto, Customer>();
-        CreateMap<ProductDto, Product>();
+        CreateMap<Customer, CustomerDto>();
+        CreateMap<Product, ProductDto>();
     }
 }

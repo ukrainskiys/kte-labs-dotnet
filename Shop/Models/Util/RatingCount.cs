@@ -1,4 +1,4 @@
-namespace Shop.Domain;
+namespace Shop.Models.Util;
 
 public class RatingCountPair
 {

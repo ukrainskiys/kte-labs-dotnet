@@ -1,8 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Shop.Domain.Models;
 
-namespace Shop.Data;
+namespace Shop.Data.Repositories;
 
 public interface IRepository<T> where T : class
 {

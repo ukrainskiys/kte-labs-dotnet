@@ -1,5 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
-using Shop.Domain.Dto;
+using Shop.Models.DTO;
 
 namespace Shop.Api.Rest.Responses;
 

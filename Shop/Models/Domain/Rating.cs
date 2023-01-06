@@ -1,7 +1,4 @@
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Shop.Domain.Models;
+namespace Shop.Models.Domain;
 
 public class Rating
 {
