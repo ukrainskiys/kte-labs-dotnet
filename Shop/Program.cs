@@ -15,7 +15,11 @@ builder.Services.AddSingleton<ApplicationDbContext>();
 builder.Services.AddAutoMapper(typeof(ShopMappingProfile));
 
 builder.Services.AddSingleton<CustomerRepository>();
+builder.Services.AddSingleton<ProductRepository>();
+
 builder.Services.AddSingleton<ICustomerService, CustomerService>();
+builder.Services.AddSingleton<IProductService, ProductService>();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -39,26 +43,25 @@ app.UseHttpsRedirection();
 app.MapControllers();
 
 // var adc = app.Services.GetRequiredService<ApplicationDbContext>();
-// adc.Customers.AddRange(
-//     new Customer()
+// adc.Products.AddRange(
+//     new Product()
 //     {
-//         Name = "c-1"
+//         Name = "p-1",
+//         Price = 99.99m
 //     },
-//     new Customer
+//     new Product
 //     {
-//         Name = "c-2",
-//         IndividualDiscountFirst = 3,
+//         Price = 40m
 //     },
-//     new Customer()
+//     new Product()
 //     {
-//         Name = "c-3",
-//         IndividualDiscountSecond = 6
+//         Name = "p-2",
+//         Price = 199.99m
 //     },
-//     new Customer()
+//     new Product()
 //     {
-//         Name = "c-4",
-//         IndividualDiscountFirst = 4,
-//         IndividualDiscountSecond = 10
+//         Name = "p-3",
+//         Price = 993.9m
 //     }
 // );
 // adc.SaveChanges();

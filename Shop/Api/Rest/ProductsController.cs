@@ -3,6 +3,7 @@ using Shop.Api.Rest.Requests;
 using Shop.Api.Rest.Responses;
 using Shop.Models.DTO;
 using Shop.Models.Util;
+using Shop.Services;
 
 namespace Shop.Api.Rest;
 
@@ -10,6 +11,14 @@ namespace Shop.Api.Rest;
 [Route("/api/rest/[controller]")]
 public class ProductsController : ControllerBase
 {
+    private readonly IProductService _productService;
+
+
+    public ProductsController(IProductService productService)
+    {
+        _productService = productService;
+    }
+
     /// <summary>
     /// Get all products
     /// </summary>
@@ -19,19 +28,7 @@ public class ProductsController : ControllerBase
     [ProducesResponseType(typeof(ProductListResponse), StatusCodes.Status200OK)]
     public IActionResult GetProducts()
     {
-        var r = new ProductListResponse
-        {
-            Products = new List<ProductDto>
-            {
-                new()
-                {
-                    Id = 1,
-                    Name = "Serega",
-                    Price = 99.99m
-                }
-            }
-        };
-        return Ok(r);
+        return Ok(new ProductListResponse { Products = _productService.GetDtoProducts() });
     }
 
     /// <summary>

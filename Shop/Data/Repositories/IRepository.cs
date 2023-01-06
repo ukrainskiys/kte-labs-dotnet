@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Shop.Data.Repositories;
 
-public interface IRepository<T> where T : class
+internal interface IRepository<T> where T : class
 {
     T? FindById(long id);
     IEnumerable<T> GetAll();
