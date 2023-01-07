@@ -41,14 +41,7 @@ public class ProductsController : ControllerBase
     [ProducesResponseType(typeof(ProductInfoResponse), StatusCodes.Status200OK)]
     public IActionResult GetInfo([FromBody] ProductInfoRequest request)
     {
-        var r = new ProductInfoResponse
-        {
-            Description = "IPhone",
-            AverageRating = 4.7f,
-            CurrentRating = 5,
-            Ratings = new List<RatingCountPair> { new() { Rating = 5, Count = 2 } }
-        };
-        return Ok(r);
+        return Ok(_productService.GetInfo(request.ProductId, request.CustomerId));
     }
 
     /// <summary>

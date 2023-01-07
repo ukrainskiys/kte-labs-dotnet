@@ -1,9 +1,6 @@
 using System.Reflection;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
 using Shop.Data;
 using Shop.Data.Repositories;
-using Shop.Models.Domain;
 using Shop.Services;
 using Shop.Services.Mapper;
 
@@ -16,6 +13,7 @@ builder.Services.AddAutoMapper(typeof(ShopMappingProfile));
 
 builder.Services.AddSingleton<CustomerRepository>();
 builder.Services.AddSingleton<ProductRepository>();
+builder.Services.AddSingleton<RatingRepository>();
 
 builder.Services.AddSingleton<ICustomerService, CustomerService>();
 builder.Services.AddSingleton<IProductService, ProductService>();

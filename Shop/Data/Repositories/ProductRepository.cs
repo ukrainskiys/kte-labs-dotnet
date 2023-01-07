@@ -33,4 +33,9 @@ public class ProductRepository : RepositoryBase<Product>
         _products.AddRange(entities);
         Db.SaveChangesAsync();
     }
+
+    public List<Rating> GetRatingsByProductId(long productId)
+    {
+        return _products.Find(productId)?.Ratings.ToList() ?? new List<Rating>();
+    }
 }
