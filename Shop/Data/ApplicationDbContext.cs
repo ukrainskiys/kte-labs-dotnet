@@ -16,12 +16,11 @@ public sealed class ApplicationDbContext : DbContext
     public ApplicationDbContext(IConfiguration configuration)
     {
         _connectionString = configuration.GetConnectionString("Default")!;
-        // Database.EnsureDeleted();
-        Database.EnsureCreated();
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseNpgsql(_connectionString);
+        optionsBuilder.LogTo(Console.WriteLine, LogLevel.Information);
     }
 }
