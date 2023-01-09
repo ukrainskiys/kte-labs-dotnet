@@ -8,5 +8,5 @@ public class SaleFact
     public long Id { get; set; }
     public DateTime? SaleDateTime { get; set; }
     public string? Check { get; set; }
-    public List<Position> Positions = new();
+    public List<Position> Positions { get; set; } = new();
 }
