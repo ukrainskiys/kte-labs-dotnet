@@ -16,9 +16,8 @@ public class CustomerService : ICustomerService
         _customerRepository = customerRepository;
     }
     
-    public IEnumerable<CustomerDto> GetDtoCustomers() => _customerRepository.Set
-            .Select(customer => _mapper.Map<CustomerDto>(customer))
-            .ToList();
+    public IEnumerable<CustomerDto> GetDtoCustomers() => 
+        _customerRepository.GetAllWithMapper(c => _mapper.Map<CustomerDto>(c));
 
     public void SetCustomerDiscounts(long customerId, short? discountFirst, short? discountSecond)
     {

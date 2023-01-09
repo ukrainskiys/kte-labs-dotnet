@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace Shop.Data.Repositories;
+namespace Shop.Data;
 
 public abstract class RepositoryBase<T> : IRepository<T> where T : class
 {
@@ -13,11 +13,11 @@ public abstract class RepositoryBase<T> : IRepository<T> where T : class
         Set = applicationDbContext.Set<T>();
     }
 
-    public virtual T? FindById(long id) => Set.Find(id);
+    public T? FindById(long id) => Set.Find(id);
 
-    public virtual IEnumerable<T> GetAll() => Set.ToList();
+    public IEnumerable<T> GetAll() => Set.ToList();
 
-    public virtual void Save(T entity, params T[] entities)
+    public void Save(T entity, params T[] entities)
     {
         Set.Add(entity);
         Set.AddRange(entities);

@@ -24,10 +24,9 @@ public class ProductService : IProductService
         _ratingRepository = ratingRepository;
     }
 
-    public IEnumerable<ProductDto> GetDtoProducts() => _productRepository.Set
-        .Select(product => _mapper.Map<ProductDto>(product))
-        .ToList();
-
+    public IEnumerable<ProductDto> GetDtoProducts() =>
+        _productRepository.GetAllWithMapper(p => _mapper.Map<ProductDto>(p));
+    
     public ProductInfoResponse GetInfo(long productId, long customerId)
     {
         var product = _productRepository.FindById(productId);

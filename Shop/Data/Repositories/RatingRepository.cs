@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using Shop.Models.Domain;
 
 namespace Shop.Data.Repositories;

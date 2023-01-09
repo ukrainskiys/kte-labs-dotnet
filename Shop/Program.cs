@@ -14,10 +14,11 @@ builder.Services.AddAutoMapper(typeof(ShopMappingProfile));
 builder.Services.AddSingleton<CustomerRepository>();
 builder.Services.AddSingleton<ProductRepository>();
 builder.Services.AddSingleton<RatingRepository>();
+builder.Services.AddSingleton<SaleFactRepository>();
 
 builder.Services.AddSingleton<ICustomerService, CustomerService>();
 builder.Services.AddSingleton<IProductService, ProductService>();
-
+builder.Services.AddSingleton<ISaleFactService, SaleFactService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -36,32 +37,6 @@ app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
-// app.UseAuthorization();
-
 app.MapControllers();
-
-// var adc = app.Services.GetRequiredService<ApplicationDbContext>();
-// adc.Products.AddRange(
-//     new Product()
-//     {
-//         Name = "p-1",
-//         Price = 99.99m
-//     },
-//     new Product
-//     {
-//         Price = 40m
-//     },
-//     new Product()
-//     {
-//         Name = "p-2",
-//         Price = 199.99m
-//     },
-//     new Product()
-//     {
-//         Name = "p-3",
-//         Price = 993.9m
-//     }
-// );
-// adc.SaveChanges();
 
 app.Run();
