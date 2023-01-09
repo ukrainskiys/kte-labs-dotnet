@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Shop.Api.Rest.Requests;
 using Shop.Api.Rest.Responses;
-using Shop.Models.DTO;
-using Shop.Models.Util;
 using Shop.Services;
 
 namespace Shop.Api.Rest;

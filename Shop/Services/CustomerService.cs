@@ -16,13 +16,9 @@ public class CustomerService : ICustomerService
         _customerRepository = customerRepository;
     }
     
-    public IEnumerable<CustomerDto> GetDtoCustomers()
-    {
-        return _customerRepository
-            .GetDbSet()
+    public IEnumerable<CustomerDto> GetDtoCustomers() => _customerRepository.Set
             .Select(customer => _mapper.Map<CustomerDto>(customer))
             .ToList();
-    }
 
     public void SetCustomerDiscounts(long customerId, short? discountFirst, short? discountSecond)
     {

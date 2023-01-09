@@ -24,10 +24,9 @@ public class ProductService : IProductService
         _ratingRepository = ratingRepository;
     }
 
-    public IEnumerable<ProductDto> GetDtoProducts()
-    {
-        return _productRepository.GetDbSet().Select(product => _mapper.Map<ProductDto>(product)).ToList();
-    }
+    public IEnumerable<ProductDto> GetDtoProducts() => _productRepository.Set
+        .Select(product => _mapper.Map<ProductDto>(product))
+        .ToList();
 
     public ProductInfoResponse GetInfo(long productId, long customerId)
     {
@@ -35,12 +34,12 @@ public class ProductService : IProductService
         if (product == null) throw new ProductNotFoundException(productId);
 
         var ratings = product.Ratings;
-        
+
         var pairs = ratings
             .GroupBy(rating => rating.Value)
             .Select(r => new RatingCountPair { Rating = r.Key, Count = r.Count() })
             .ToList();
-        
+
         pairs.Sort((a, b) => a.Rating.CompareTo(b.Rating));
 
         return new ProductInfoResponse
